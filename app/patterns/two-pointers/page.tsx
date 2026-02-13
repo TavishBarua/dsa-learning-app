@@ -87,6 +87,7 @@ export default function TwoPointersPage() {
 
   useEffect(() => {
     reset();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -118,10 +119,10 @@ export default function TwoPointersPage() {
           </h2>
           <div className="text-pink-800 space-y-3">
             <p className="text-lg">
-              <strong>Imagine you're trying to find two kids in a line whose ages add up to exactly 10...</strong>
+              <strong>Imagine you&apos;re trying to find two kids in a line whose ages add up to exactly 10...</strong>
             </p>
             <p>
-              You put one finger on the <strong>youngest kid (left)</strong> and another on the <strong>oldest kid (right)</strong>. If their ages add up to <strong>more than 10</strong>, move your right finger to a younger kid (←). If it's <strong>less than 10</strong>, move your left finger to an older kid (→). Keep going until you find the pair!
+              You put one finger on the <strong>youngest kid (left)</strong> and another on the <strong>oldest kid (right)</strong>. If their ages add up to <strong>more than 10</strong>, move your right finger to a younger kid (←). If it&apos;s <strong>less than 10</strong>, move your left finger to an older kid (→). Keep going until you find the pair!
             </p>
             <p>
               <strong>Why is this smart?</strong> Instead of checking every possible pair (slow! 🐌), you smartly eliminate bad options and move closer to the answer (fast! 🚀).

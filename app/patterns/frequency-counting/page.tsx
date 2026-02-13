@@ -61,7 +61,7 @@ export default function FrequencyCountingPage() {
     setHashMap({});
     setIsPlaying(false);
     setMostFrequent(null);
-    setExplanation('🎯 Let\'s count how many times each number appears!');
+    setExplanation('🎯 Let&apos;s count how many times each number appears!');
   };
 
   const stepForward = () => {
@@ -89,6 +89,7 @@ export default function FrequencyCountingPage() {
 
   useEffect(() => {
     reset();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const uniqueNumbers = [...new Set(array)].sort((a, b) => a - b);
@@ -122,13 +123,13 @@ export default function FrequencyCountingPage() {
           </h2>
           <div className="text-cyan-800 space-y-3">
             <p className="text-lg">
-              <strong>Imagine you're counting how many candies of each color you have...</strong>
+              <strong>Imagine you&apos;re counting how many candies of each color you have...</strong>
             </p>
             <p>
-              You make a <strong>tally chart</strong> on paper. Every time you see a red candy, you add a mark next to "Red". Blue candy? Mark next to "Blue". At the end, you can quickly see which color you have the most of!
+              You make a <strong>tally chart</strong> on paper. Every time you see a red candy, you add a mark next to &ldquo;Red&rdquo;. Blue candy? Mark next to &ldquo;Blue&rdquo;. At the end, you can quickly see which color you have the most of!
             </p>
             <p>
-              <strong>Why is this smart?</strong> Instead of searching through all your candies every time someone asks "How many red ones?", you just look at your chart. <strong>Super fast! O(1) lookup!</strong> 🚀
+              <strong>Why is this smart?</strong> Instead of searching through all your candies every time someone asks &ldquo;How many red ones?&rdquo;, you just look at your chart. <strong>Super fast! O(1) lookup!</strong> 🚀
             </p>
             <div className="bg-white/50 rounded-lg p-4 mt-4">
               <p className="font-semibold text-cyan-900 mb-2">Real-world use cases:</p>
@@ -401,7 +402,7 @@ export default function FrequencyCountingPage() {
             <div className="flex items-start gap-3">
               <div className="text-2xl">✅</div>
               <div>
-                <strong>Keywords:</strong> "count", "frequency", "occurrences", "duplicates"
+                <strong>Keywords:</strong> &ldquo;count&rdquo;, &ldquo;frequency&rdquo;, &ldquo;occurrences&rdquo;, &ldquo;duplicates&rdquo;
               </div>
             </div>
             <div className="flex items-start gap-3">

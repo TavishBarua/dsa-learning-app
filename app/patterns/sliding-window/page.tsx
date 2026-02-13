@@ -23,7 +23,7 @@ export default function SlidingWindowPage() {
     if (sum > maxSum) {
       setMaxSum(sum);
     }
-  }, [leftPointer, rightPointer, array]);
+  }, [leftPointer, rightPointer, array, maxSum]);
 
   // Auto-play animation
   useEffect(() => {
@@ -105,11 +105,11 @@ export default function SlidingWindowPage() {
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-6 mb-8">
           <h2 className="text-2xl font-bold text-blue-900 mb-3 flex items-center gap-2">
             <span>👶</span>
-            <span>Explain Like I'm 5</span>
+            <span>Explain Like I&apos;m 5</span>
           </h2>
           <div className="text-blue-800 space-y-3">
             <p className="text-lg">
-              <strong>Imagine you're looking at houses through a car window...</strong>
+              <strong>Imagine you&apos;re looking at houses through a car window...</strong>
             </p>
             <p>
               You can see {windowSize} houses at a time through your window. Instead of stopping and counting houses again and again, you just <strong>slide your window</strong> forward—remove the house that goes out of view, add the new house that comes in!
@@ -370,7 +370,7 @@ export default function SlidingWindowPage() {
             <div className="flex items-start gap-3">
               <div className="text-2xl">✅</div>
               <div>
-                <strong>Keywords in problem:</strong> "contiguous", "subarray", "substring", "consecutive"
+                <strong>Keywords in problem:</strong> &ldquo;contiguous&rdquo;, &ldquo;subarray&rdquo;, &ldquo;substring&rdquo;, &ldquo;consecutive&rdquo;
               </div>
             </div>
             <div className="flex items-start gap-3">
