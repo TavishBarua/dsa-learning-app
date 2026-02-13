@@ -382,7 +382,7 @@ export default function SlidingWindowPage() {
             <div className="flex items-start gap-3">
               <div className="text-2xl">✅</div>
               <div>
-                <strong>Has constraint:</strong> "size K", "at most K distinct", "with condition X"
+                <strong>Has constraint:</strong> &ldquo;size K&rdquo;, &ldquo;at most K distinct&rdquo;, &ldquo;with condition X&rdquo;
               </div>
             </div>
             <div className="flex items-start gap-3">

@@ -119,7 +119,7 @@ export default function FrequencyCountingPage() {
         <div className="bg-gradient-to-r from-cyan-50 to-blue-50 border-2 border-cyan-200 rounded-xl p-6 mb-8">
           <h2 className="text-2xl font-bold text-cyan-900 mb-3 flex items-center gap-2">
             <span>👶</span>
-            <span>Explain Like I'm 5</span>
+            <span>Explain Like I&apos;m 5</span>
           </h2>
           <div className="text-cyan-800 space-y-3">
             <p className="text-lg">

@@ -67,7 +67,7 @@ export default function Home() {
         {/* Hero Section */}
         <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 md:p-12 mb-8 text-white shadow-xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            You're Not Bad at DSA. You're Untrained. 💪
+            You&apos;re Not Bad at DSA. You&apos;re Untrained. 💪
           </h2>
           <p className="text-lg md:text-xl mb-6 text-indigo-100">
             Just like debugging production issues, DSA is about <span className="font-bold text-white">pattern recognition</span>, not memorization.
@@ -76,7 +76,7 @@ export default function Home() {
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
               <div className="text-3xl mb-2">🎯</div>
               <div className="font-semibold mb-1">Visual Learning</div>
-              <div className="text-sm text-indigo-100">See it, don't just read it</div>
+              <div className="text-sm text-indigo-100">See it, don&apos;t just read it</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
               <div className="text-3xl mb-2">🎮</div>
@@ -86,7 +86,7 @@ export default function Home() {
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
               <div className="text-3xl mb-2">🚀</div>
               <div className="font-semibold mb-1">ELI5 Style</div>
-              <div className="text-sm text-indigo-100">Explained like you're 5</div>
+              <div className="text-sm text-indigo-100">Explained like you&apos;re 5</div>
             </div>
           </div>
         </div>
@@ -193,7 +193,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 text-center text-gray-600 text-sm">
           <p>Built to conquer DSA fear, one pattern at a time 🚀</p>
           <p className="mt-2 text-xs text-gray-400">
-            Remember: You're learning patterns, not memorizing solutions
+            Remember: You&apos;re learning patterns, not memorizing solutions
           </p>
         </div>
       </footer>

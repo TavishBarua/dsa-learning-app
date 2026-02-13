@@ -115,7 +115,7 @@ export default function TwoPointersPage() {
         <div className="bg-gradient-to-r from-pink-50 to-orange-50 border-2 border-pink-200 rounded-xl p-6 mb-8">
           <h2 className="text-2xl font-bold text-pink-900 mb-3 flex items-center gap-2">
             <span>👶</span>
-            <span>Explain Like I'm 5</span>
+            <span>Explain Like I&apos;m 5</span>
           </h2>
           <div className="text-pink-800 space-y-3">
             <p className="text-lg">
