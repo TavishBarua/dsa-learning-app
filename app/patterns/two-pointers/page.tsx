@@ -289,7 +289,7 @@ export default function TwoPointersPage() {
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-4 justify-center">
-                <label className="font-semibold">Target Sum:</label>
+                <label className="font-bold text-gray-900 text-lg">Target Sum:</label>
                 <input
                   type="number"
                   value={target}
@@ -297,7 +297,7 @@ export default function TwoPointersPage() {
                     setTarget(parseInt(e.target.value) || 0);
                     reset();
                   }}
-                  className="border-2 border-gray-300 rounded-lg px-4 py-2 w-24 text-center font-bold"
+                  className="border-2 border-gray-300 rounded-lg px-4 py-2 w-24 text-center font-bold text-lg"
                 />
               </div>
 
@@ -360,8 +360,8 @@ export default function TwoPointersPage() {
             <h3 className="text-lg font-bold text-gray-800 mb-4">📜 Execution History</h3>
             <div className="space-y-2 max-h-48 overflow-y-auto">
               {attempts.map((attempt, idx) => (
-                <div key={idx} className="bg-gray-50 rounded p-3 text-sm">
-                  <span className="font-mono">
+                <div key={idx} className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-base">
+                  <span className="font-mono font-bold text-gray-900">
                     Step {idx + 1}: arr[{attempt.left}] + arr[{attempt.right}] = {array[attempt.left]} + {array[attempt.right]} = {attempt.sum}
                     {attempt.sum === target ? ' ✅ FOUND!' : attempt.sum < target ? ' ⬆️ Too Low' : ' ⬇️ Too High'}
                   </span>

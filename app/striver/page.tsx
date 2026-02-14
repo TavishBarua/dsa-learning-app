@@ -145,6 +145,9 @@ export default function StriverA2Z() {
               <Link href="/striver" className="text-sm font-semibold text-purple-600 border-b-2 border-purple-600 pb-1">
                 Striver A2Z
               </Link>
+              <Link href="/ats-checker" className="text-sm font-semibold text-gray-600 hover:text-purple-600 pb-1">
+                ATS Checker
+              </Link>
             </nav>
           </div>
         </div>
