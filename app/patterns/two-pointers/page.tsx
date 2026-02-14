@@ -13,6 +13,7 @@ export default function TwoPointersPage() {
   const [found, setFound] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [speed, setSpeed] = useState(3000); // Default to slower speed
+  const [speedMultiplier, setSpeedMultiplier] = useState(1); // 0.3x to 2x
   const [explanation, setExplanation] = useState('Click "Start" to begin visualization');
   const [attempts, setAttempts] = useState<{left: number, right: number, sum: number}[]>([]);
   const [currentLine, setCurrentLine] = useState(0);
@@ -52,6 +53,7 @@ export default function TwoPointersPage() {
   // Auto-play animation with code execution tracking
   useEffect(() => {
     let interval: NodeJS.Timeout;
+    const actualSpeed = speed / speedMultiplier; // Apply speed multiplier
     if (isPlaying && !found) {
       interval = setInterval(() => {
         setExecutionStep(prev => prev + 1);
@@ -94,14 +96,14 @@ export default function TwoPointersPage() {
                 setCurrentLine(13);
                 setExplanation(`Line 13: sum=${sum} > target=${target}. Decrementing right pointer (${rightPointer} → ${rightPointer - 1})`);
                 setRightPointer(prev => prev - 1);
-              }, speed / 4);
+              }, actualSpeed / 4);
             }
-          }, speed / 4);
-        }, speed / 4);
-      }, speed);
+          }, actualSpeed / 4);
+        }, actualSpeed / 4);
+      }, actualSpeed);
     }
     return () => clearInterval(interval);
-  }, [isPlaying, leftPointer, rightPointer, found, array, target, speed]);
+  }, [isPlaying, leftPointer, rightPointer, found, array, target, speed, speedMultiplier]);
 
   const reset = () => {
     setLeftPointer(0);
@@ -189,12 +191,12 @@ export default function TwoPointersPage() {
                   className={`px-3 py-1.5 rounded-md transition-all ${
                     currentLine === line
                       ? 'bg-yellow-400 text-black font-black text-lg shadow-2xl border-l-8 border-yellow-600'
-                      : 'text-gray-100 hover:bg-gray-800 text-sm'
+                      : 'text-white hover:bg-gray-800 text-base font-medium'
                   }`}
                   style={{ paddingLeft: `${indent * 1.5 + 0.75}rem` }}
                 >
-                  <span className={`mr-3 font-bold ${currentLine === line ? 'text-black text-lg' : 'text-gray-500'}`}>{line}</span>
-                  {code || <span className="text-gray-700">...</span>}
+                  <span className={`mr-3 font-bold ${currentLine === line ? 'text-black text-lg' : 'text-gray-400'}`}>{line}</span>
+                  {code || <span className="text-gray-600">...</span>}
                 </div>
               ))}
             </div>
@@ -285,29 +287,44 @@ export default function TwoPointersPage() {
         {/* Controls */}
         <div className="bg-white rounded-xl shadow-xl p-6 mb-8">
           <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-4 justify-center flex-wrap">
-              <label className="font-semibold">Target Sum:</label>
-              <input
-                type="number"
-                value={target}
-                onChange={(e) => {
-                  setTarget(parseInt(e.target.value) || 0);
-                  reset();
-                }}
-                className="border-2 border-gray-300 rounded-lg px-4 py-2 w-24 text-center font-bold"
-              />
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-4 justify-center">
+                <label className="font-semibold">Target Sum:</label>
+                <input
+                  type="number"
+                  value={target}
+                  onChange={(e) => {
+                    setTarget(parseInt(e.target.value) || 0);
+                    reset();
+                  }}
+                  className="border-2 border-gray-300 rounded-lg px-4 py-2 w-24 text-center font-bold"
+                />
+              </div>
 
-              <label className="font-semibold ml-4">Speed:</label>
-              <select
-                value={speed}
-                onChange={(e) => setSpeed(parseInt(e.target.value))}
-                className="border-2 border-gray-300 rounded-lg px-4 py-2"
-              >
-                <option value={5000}>Very Slow (5s)</option>
-                <option value={3000}>Slow (3s)</option>
-                <option value={2000}>Normal (2s)</option>
-                <option value={1000}>Fast (1s)</option>
-              </select>
+              {/* Speed Slider */}
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-lg p-4">
+                <div className="flex items-center justify-between mb-2">
+                  <label className="font-bold text-blue-900">⚡ Speed Control:</label>
+                  <span className="text-blue-900 font-bold">{speedMultiplier.toFixed(1)}x ({(speed / speedMultiplier / 1000).toFixed(1)}s per step)</span>
+                </div>
+                <input
+                  type="range"
+                  min="0.3"
+                  max="2"
+                  step="0.1"
+                  value={speedMultiplier}
+                  onChange={(e) => setSpeedMultiplier(parseFloat(e.target.value))}
+                  className="w-full h-3 bg-blue-200 rounded-lg appearance-none cursor-pointer slider"
+                  style={{
+                    background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${((speedMultiplier - 0.3) / 1.7) * 100}%, #dbeafe ${((speedMultiplier - 0.3) / 1.7) * 100}%, #dbeafe 100%)`
+                  }}
+                />
+                <div className="flex justify-between text-xs text-blue-700 mt-1">
+                  <span>🐌 0.3x (Very Slow)</span>
+                  <span>1.0x (Normal)</span>
+                  <span>🚀 2.0x (Fast)</span>
+                </div>
+              </div>
             </div>
 
             <div className="flex gap-4 justify-center flex-wrap">
