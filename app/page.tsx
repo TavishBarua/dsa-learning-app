@@ -37,7 +37,25 @@ export default function Home() {
       emoji: '📚',
       description: 'Stack of books - last in, first out!',
       difficulty: 'Medium',
-      status: 'coming-soon',
+      status: 'available',
+      week: 2
+    },
+    {
+      id: 'queue',
+      name: 'Queue Pattern',
+      emoji: '🎫',
+      description: 'Line at a ticket counter - first in, first out!',
+      difficulty: 'Medium',
+      status: 'available',
+      week: 2
+    },
+    {
+      id: 'hashmap',
+      name: 'Hash Map',
+      emoji: '🗺️',
+      description: 'Magic dictionary - instant lookups!',
+      difficulty: 'Medium',
+      status: 'available',
       week: 2
     }
   ];
