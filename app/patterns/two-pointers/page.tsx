@@ -174,58 +174,58 @@ export default function TwoPointersPage() {
         {/* Main Visualization Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Code Execution Panel */}
-          <div className="bg-gray-900 rounded-xl shadow-xl p-6 text-white font-mono text-sm">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-bold">🔍 Code Execution Debugger</h3>
+          <div className="bg-gray-900 rounded-xl shadow-xl p-4 text-white font-mono text-base">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-lg font-bold text-yellow-400">🔍 Code Debugger</h3>
               <div className="flex gap-2 text-xs">
-                <span className="bg-yellow-500 text-black px-2 py-1 rounded">→ Executing</span>
+                <span className="bg-yellow-400 text-black px-3 py-1 rounded-lg font-bold">→ EXECUTING</span>
               </div>
             </div>
 
-            <div className="space-y-1">
+            <div className="space-y-0.5 max-h-96 overflow-y-auto">
               {codeLines.map(({line, code, indent}) => (
                 <div
                   key={line}
-                  className={`px-4 py-2 rounded-lg transition-all ${
+                  className={`px-3 py-1.5 rounded-md transition-all ${
                     currentLine === line
-                      ? 'bg-yellow-400 text-black font-extrabold scale-110 shadow-2xl border-4 border-yellow-600'
-                      : 'text-gray-300 hover:bg-gray-800'
+                      ? 'bg-yellow-400 text-black font-black text-lg shadow-2xl border-l-8 border-yellow-600'
+                      : 'text-gray-100 hover:bg-gray-800 text-sm'
                   }`}
-                  style={{ paddingLeft: `${indent * 1.5 + 1}rem` }}
+                  style={{ paddingLeft: `${indent * 1.5 + 0.75}rem` }}
                 >
-                  <span className={`mr-4 ${currentLine === line ? 'text-black' : 'text-gray-600'}`}>{line}</span>
+                  <span className={`mr-3 font-bold ${currentLine === line ? 'text-black text-lg' : 'text-gray-500'}`}>{line}</span>
                   {code || <span className="text-gray-700">...</span>}
                 </div>
               ))}
             </div>
 
             {/* Variable State */}
-            <div className="mt-6 pt-4 border-t border-gray-700">
-              <h4 className="text-sm font-bold mb-2 text-yellow-400">📊 Variables State:</h4>
-              <div className="grid grid-cols-2 gap-2 text-xs">
-                <div className="bg-gray-800 p-2 rounded">
-                  <span className="text-gray-400">left:</span>
-                  <span className="text-green-400 font-bold ml-2">{leftPointer}</span>
+            <div className="mt-4 pt-3 border-t-2 border-yellow-500">
+              <h4 className="text-base font-bold mb-3 text-yellow-400">📊 Variables:</h4>
+              <div className="grid grid-cols-2 gap-3 text-sm">
+                <div className="bg-green-900 border-2 border-green-500 p-3 rounded-lg">
+                  <span className="text-green-300 font-bold">left:</span>
+                  <span className="text-green-100 font-black ml-2 text-xl">{leftPointer}</span>
                 </div>
-                <div className="bg-gray-800 p-2 rounded">
-                  <span className="text-gray-400">right:</span>
-                  <span className="text-blue-400 font-bold ml-2">{rightPointer}</span>
+                <div className="bg-blue-900 border-2 border-blue-500 p-3 rounded-lg">
+                  <span className="text-blue-300 font-bold">right:</span>
+                  <span className="text-blue-100 font-black ml-2 text-xl">{rightPointer}</span>
                 </div>
-                <div className="bg-gray-800 p-2 rounded">
-                  <span className="text-gray-400">sum:</span>
-                  <span className="text-purple-400 font-bold ml-2">{currentSum}</span>
+                <div className="bg-purple-900 border-2 border-purple-500 p-3 rounded-lg">
+                  <span className="text-purple-300 font-bold">sum:</span>
+                  <span className="text-purple-100 font-black ml-2 text-xl">{currentSum}</span>
                 </div>
-                <div className="bg-gray-800 p-2 rounded">
-                  <span className="text-gray-400">target:</span>
-                  <span className="text-orange-400 font-bold ml-2">{target}</span>
+                <div className="bg-orange-900 border-2 border-orange-500 p-3 rounded-lg">
+                  <span className="text-orange-300 font-bold">target:</span>
+                  <span className="text-orange-100 font-black ml-2 text-xl">{target}</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Array Visualization Panel */}
-          <div className="bg-white rounded-xl shadow-xl p-6">
-            <h3 className="text-lg font-bold text-gray-800 mb-4">🎯 Array Visualization</h3>
+          <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-xl p-6 border-4 border-gray-300">
+            <h3 className="text-xl font-black text-gray-900 mb-4">🎯 Array Visualization</h3>
 
             <div className="flex items-center justify-center gap-2 mb-6">
               {array.map((num, idx) => (
