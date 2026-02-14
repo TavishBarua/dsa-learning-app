@@ -12,7 +12,7 @@ export default function TwoPointersPage() {
   const [currentSum, setCurrentSum] = useState(0);
   const [found, setFound] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [speed, setSpeed] = useState(1000);
+  const [speed, setSpeed] = useState(3000); // Default to slower speed
   const [explanation, setExplanation] = useState('Click "Start" to begin visualization');
   const [attempts, setAttempts] = useState<{left: number, right: number, sum: number}[]>([]);
   const [currentLine, setCurrentLine] = useState(0);
@@ -186,14 +186,14 @@ export default function TwoPointersPage() {
               {codeLines.map(({line, code, indent}) => (
                 <div
                   key={line}
-                  className={`px-3 py-1 rounded transition-all ${
+                  className={`px-4 py-2 rounded-lg transition-all ${
                     currentLine === line
-                      ? 'bg-yellow-500 text-black font-bold scale-105'
-                      : 'hover:bg-gray-800'
+                      ? 'bg-yellow-400 text-black font-extrabold scale-110 shadow-2xl border-4 border-yellow-600'
+                      : 'text-gray-300 hover:bg-gray-800'
                   }`}
-                  style={{ paddingLeft: `${indent * 1.5 + 0.75}rem` }}
+                  style={{ paddingLeft: `${indent * 1.5 + 1}rem` }}
                 >
-                  <span className="text-gray-500 mr-3">{line}</span>
+                  <span className={`mr-4 ${currentLine === line ? 'text-black' : 'text-gray-600'}`}>{line}</span>
                   {code || <span className="text-gray-700">...</span>}
                 </div>
               ))}
@@ -251,33 +251,33 @@ export default function TwoPointersPage() {
             </div>
 
             {/* Pointer Labels */}
-            <div className="flex justify-center gap-4 mb-6 text-sm font-semibold">
-              <div className="flex items-center gap-2">
-                <div className="w-4 h-4 bg-green-400 border-2 border-green-600 rounded"></div>
-                <span>Left = {leftPointer} (arr[{leftPointer}] = {array[leftPointer]})</span>
+            <div className="flex justify-center gap-4 mb-6 text-sm font-bold">
+              <div className="flex items-center gap-2 bg-green-100 px-3 py-2 rounded-lg border-2 border-green-400">
+                <div className="w-4 h-4 bg-green-500 border-2 border-green-700 rounded"></div>
+                <span className="text-green-900">Left = {leftPointer} (arr[{leftPointer}] = {array[leftPointer]})</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-4 h-4 bg-blue-400 border-2 border-blue-600 rounded"></div>
-                <span>Right = {rightPointer} (arr[{rightPointer}] = {array[rightPointer]})</span>
+              <div className="flex items-center gap-2 bg-blue-100 px-3 py-2 rounded-lg border-2 border-blue-400">
+                <div className="w-4 h-4 bg-blue-500 border-2 border-blue-700 rounded"></div>
+                <span className="text-blue-900">Right = {rightPointer} (arr[{rightPointer}] = {array[rightPointer]})</span>
               </div>
             </div>
 
             {/* Current Sum */}
-            <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-4 mb-4">
+            <div className="bg-purple-100 border-4 border-purple-400 rounded-lg p-5 mb-4">
               <div className="text-center">
-                <p className="text-sm text-purple-600 mb-1">Current Sum:</p>
-                <p className="text-2xl font-bold text-purple-900">
+                <p className="text-base text-purple-900 font-bold mb-2">Current Sum:</p>
+                <p className="text-3xl font-bold text-purple-900">
                   {array[leftPointer]} + {array[rightPointer]} = {currentSum}
                 </p>
-                <p className="text-sm text-purple-600 mt-1">
-                  Target: {target} {currentSum === target ? '✅' : currentSum < target ? '⬆️ Too Low' : '⬇️ Too High'}
+                <p className="text-lg text-purple-900 font-bold mt-2">
+                  Target: {target} {currentSum === target ? '✅ MATCH!' : currentSum < target ? '⬆️ Too Low' : '⬇️ Too High'}
                 </p>
               </div>
             </div>
 
             {/* Explanation */}
-            <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-3">
-              <p className="text-sm text-blue-900 font-semibold">{explanation}</p>
+            <div className="bg-blue-100 border-4 border-blue-400 rounded-lg p-4">
+              <p className="text-base text-blue-900 font-bold">{explanation}</p>
             </div>
           </div>
         </div>
@@ -303,9 +303,10 @@ export default function TwoPointersPage() {
                 onChange={(e) => setSpeed(parseInt(e.target.value))}
                 className="border-2 border-gray-300 rounded-lg px-4 py-2"
               >
-                <option value={2000}>Slow</option>
-                <option value={1000}>Normal</option>
-                <option value={500}>Fast</option>
+                <option value={5000}>Very Slow (5s)</option>
+                <option value={3000}>Slow (3s)</option>
+                <option value={2000}>Normal (2s)</option>
+                <option value={1000}>Fast (1s)</option>
               </select>
             </div>
 
