@@ -54,10 +54,14 @@ export default function Home() {
               </h1>
               <p className="text-sm text-gray-600 mt-1">Stop grinding. Start recognizing.</p>
             </div>
-            <div className="text-right">
-              <div className="text-xs text-gray-500">Week 1-2</div>
-              <div className="text-sm font-semibold text-indigo-600">Foundation Patterns</div>
-            </div>
+            <nav className="flex gap-4">
+              <Link href="/" className="text-sm font-semibold text-indigo-600 border-b-2 border-indigo-600 pb-1">
+                Patterns
+              </Link>
+              <Link href="/striver" className="text-sm font-semibold text-gray-600 hover:text-indigo-600 pb-1">
+                Striver A2Z
+              </Link>
+            </nav>
           </div>
         </div>
       </header>
