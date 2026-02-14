@@ -113,11 +113,17 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Week 1-2 Badge */}
+        <div className="bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl p-4 mb-8 text-white text-center">
+          <h3 className="text-xl font-bold mb-1">🎯 Week 1-2 Focus</h3>
+          <p className="text-green-50 text-sm">Master these 6 patterns + Striver Basics/Arrays/Sorting. Don&apos;t rush - quality over quantity!</p>
+        </div>
+
         {/* Pattern Cards */}
         <div className="mb-8">
           <h3 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
             <span>🎨</span>
-            <span>Week 1-2: Array Patterns</span>
+            <span>Week 1-2: Core Patterns (6 Patterns)</span>
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {patterns.map((pattern) => (

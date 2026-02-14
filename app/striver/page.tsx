@@ -152,13 +152,19 @@ export default function StriverA2Z() {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 py-8">
+        {/* Week 1 Focus Banner */}
+        <div className="bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl p-4 mb-6 text-white text-center">
+          <h3 className="text-xl font-bold mb-1">🎯 Week 1 Focus: 3 Categories</h3>
+          <p className="text-green-50 text-sm">Start with Basics, Arrays, and Sorting. More categories unlock as you progress!</p>
+        </div>
+
         {/* Hero Section */}
         <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 md:p-12 mb-8 text-white shadow-xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Striver&apos;s A2Z DSA Sheet 📚
           </h2>
           <p className="text-lg md:text-xl mb-6 text-purple-100">
-            Complete <span className="font-bold text-white">450+ problems</span> from basics to advanced. Track your progress with <span className="font-bold">visual learning</span>!
+            Progressive learning path with <span className="font-bold text-white">450+ problems</span>. Start small, unlock more as you master each category!
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
