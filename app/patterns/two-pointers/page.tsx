@@ -19,24 +19,24 @@ export default function TwoPointersPage() {
   const [currentLine, setCurrentLine] = useState(0);
   const [executionStep, setExecutionStep] = useState(0);
 
-  // Code lines for visualization
+  // Code lines for visualization (Java)
   const codeLines = [
-    { line: 1, code: 'function twoSum(arr, target) {', indent: 0 },
-    { line: 2, code: 'let left = 0;', indent: 1 },
-    { line: 3, code: 'let right = arr.length - 1;', indent: 1 },
+    { line: 1, code: 'public int[] twoSum(int[] arr, int target) {', indent: 0 },
+    { line: 2, code: 'int left = 0;', indent: 1 },
+    { line: 3, code: 'int right = arr.length - 1;', indent: 1 },
     { line: 4, code: '', indent: 0 },
     { line: 5, code: 'while (left < right) {', indent: 1 },
-    { line: 6, code: 'const sum = arr[left] + arr[right];', indent: 2 },
+    { line: 6, code: 'int sum = arr[left] + arr[right];', indent: 2 },
     { line: 7, code: '', indent: 0 },
-    { line: 8, code: 'if (sum === target) {', indent: 2 },
-    { line: 9, code: 'return [left, right]; // Found!', indent: 3 },
+    { line: 8, code: 'if (sum == target) {', indent: 2 },
+    { line: 9, code: 'return new int[]{left, right}; // Found!', indent: 3 },
     { line: 10, code: '} else if (sum < target) {', indent: 2 },
     { line: 11, code: 'left++; // Need larger sum', indent: 3 },
     { line: 12, code: '} else {', indent: 2 },
     { line: 13, code: 'right--; // Need smaller sum', indent: 3 },
     { line: 14, code: '}', indent: 2 },
     { line: 15, code: '}', indent: 1 },
-    { line: 16, code: 'return null; // Not found', indent: 1 },
+    { line: 16, code: 'return new int[]{-1, -1}; // Not found', indent: 1 },
     { line: 17, code: '}', indent: 0 },
   ];
 
@@ -162,13 +162,22 @@ export default function TwoPointersPage() {
           </h2>
           <div className="text-blue-800 space-y-3">
             <p className="text-lg">
-              <strong>Imagine you and a friend standing at opposite ends of a line of numbers...</strong>
+              <strong>🎯 Real-Life Example: Finding Two Friends in a Line</strong>
             </p>
             <p>
-              You both walk toward each other. At each step, you check if your numbers add up to what you want. If the sum is too small, the friend on the left moves right (to bigger numbers). If too big, the friend on the right moves left (to smaller numbers).
+              Imagine kids lined up by height (shortest to tallest). You need to find two kids whose combined heights equal a target height. Instead of checking every possible pair (which takes forever!), you do this smart trick:
             </p>
-            <p>
-              <strong>Why does this work?</strong> Because the array is sorted! You intelligently skip unnecessary checks by moving the right pointer.
+            <ul className="list-disc list-inside space-y-2 ml-4">
+              <li><strong>Start:</strong> Point to the shortest kid (left) and tallest kid (right)</li>
+              <li><strong>Too Short?</strong> If their combined height is less than target, move left pointer right (pick a taller kid on left)</li>
+              <li><strong>Too Tall?</strong> If combined height is more than target, move right pointer left (pick a shorter kid on right)</li>
+              <li><strong>Perfect?</strong> If heights match the target, you found them! 🎉</li>
+            </ul>
+            <p className="bg-blue-100 border-l-4 border-blue-500 p-3 rounded mt-3">
+              <strong>💡 Key Insight:</strong> This ONLY works because the array is sorted! You know moving left makes numbers bigger, moving right makes them smaller. This lets you eliminate half the possibilities with each move!
+            </p>
+            <p className="text-sm italic">
+              <strong>⏱️ Time Saved:</strong> Instead of checking all pairs (n² comparisons), you only need n comparisons!
             </p>
           </div>
         </div>
@@ -371,21 +380,56 @@ export default function TwoPointersPage() {
           </div>
         )}
 
+        {/* Java Code Snippet */}
+        <div className="bg-gray-900 rounded-xl shadow-xl p-6 mb-8">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-xl font-bold text-yellow-400">☕ Complete Java Solution</h3>
+            <span className="text-xs text-gray-400 font-mono">Two Pointers Pattern</span>
+          </div>
+          <pre className="text-green-400 font-mono text-sm overflow-x-auto">
+            <code>{`public int[] twoSum(int[] arr, int target) {
+    int left = 0;
+    int right = arr.length - 1;
+
+    while (left < right) {
+        int sum = arr[left] + arr[right];
+
+        if (sum == target) {
+            return new int[]{left, right};  // Found pair!
+        } else if (sum < target) {
+            left++;   // Need larger sum
+        } else {
+            right--;  // Need smaller sum
+        }
+    }
+
+    return new int[]{-1, -1};  // Not found
+}
+
+// Time Complexity: O(n) - single pass
+// Space Complexity: O(1) - constant space`}</code>
+          </pre>
+        </div>
+
         {/* When to Use */}
-        <div className="bg-gradient-to-r from-emerald-50 to-green-50 border-2 border-emerald-200 rounded-xl p-6 mt-8">
+        <div className="bg-gradient-to-r from-emerald-50 to-green-50 border-2 border-emerald-200 rounded-xl p-6">
           <h3 className="text-xl font-bold text-emerald-900 mb-4">🎯 When to Use Two Pointers?</h3>
           <div className="space-y-3 text-emerald-800">
             <div className="flex items-start gap-3">
               <div className="text-2xl">✅</div>
-              <div><strong>Keywords:</strong> &ldquo;sorted array&rdquo;, &ldquo;pair&rdquo;, &ldquo;opposite ends&rdquo;</div>
+              <div><strong>Keywords:</strong> &ldquo;sorted array&rdquo;, &ldquo;pair&rdquo;, &ldquo;opposite ends&rdquo;, &ldquo;two elements&rdquo;</div>
             </div>
             <div className="flex items-start gap-3">
               <div className="text-2xl">✅</div>
-              <div><strong>Problems:</strong> Two Sum (sorted), Container With Most Water, Trapping Rain Water</div>
+              <div><strong>Classic Problems:</strong> Two Sum II (sorted), 3Sum, Container With Most Water, Trapping Rain Water, Remove Duplicates</div>
             </div>
             <div className="flex items-start gap-3">
               <div className="text-2xl">💡</div>
               <div><strong>Pro Tip:</strong> Reduces O(n²) brute force to O(n) by eliminating redundant checks!</div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="text-2xl">🚫</div>
+              <div><strong>Don&apos;t Use If:</strong> Array is unsorted (use HashMap instead!)</div>
             </div>
           </div>
         </div>

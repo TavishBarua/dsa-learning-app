@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 export default function Home() {
   const patterns = [
+    // Week 1-2
     {
       id: 'sliding-window',
       name: 'Sliding Window',
@@ -57,6 +58,35 @@ export default function Home() {
       difficulty: 'Medium',
       status: 'available',
       week: 2
+    },
+    // Week 3
+    {
+      id: 'binary-tree-traversal',
+      name: 'Binary Tree (BFS/DFS)',
+      emoji: '🌳',
+      description: 'Explore tree nodes level by level (BFS) or depth first (DFS)!',
+      difficulty: 'Medium',
+      status: 'available',
+      week: 3
+    },
+    {
+      id: 'two-sum-unsorted',
+      name: 'Two Sum (Unsorted)',
+      emoji: '➕',
+      description: 'Find two numbers that sum to target - using HashMap magic!',
+      difficulty: 'Easy',
+      status: 'available',
+      week: 3
+    },
+    // Week 4
+    {
+      id: 'graph-islands',
+      name: 'Graph - Island Finding',
+      emoji: '🏝️',
+      description: 'Count islands using DFS - like exploring connected lands!',
+      difficulty: 'Medium',
+      status: 'available',
+      week: 4
     }
   ];
 
@@ -116,20 +146,20 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Week 1-2 Badge */}
+        {/* Week Overview Badge */}
         <div className="bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl p-4 mb-8 text-white text-center">
-          <h3 className="text-xl font-bold mb-1">🎯 Week 1-2 Focus</h3>
-          <p className="text-green-50 text-sm">Master these 6 patterns + Striver Basics/Arrays/Sorting. Don&apos;t rush - quality over quantity!</p>
+          <h3 className="text-xl font-bold mb-1">🎯 4-Week Roadmap</h3>
+          <p className="text-green-50 text-sm">Master 9 essential patterns progressively. Quality over quantity!</p>
         </div>
 
-        {/* Pattern Cards */}
+        {/* Week 1-2: Core Patterns */}
         <div className="mb-8">
           <h3 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
             <span>🎨</span>
             <span>Week 1-2: Core Patterns (6 Patterns)</span>
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {patterns.map((pattern) => (
+            {patterns.filter(p => p.week <= 2).map((pattern) => (
               <div
                 key={pattern.id}
                 className={`bg-white rounded-xl shadow-lg border-2 transition-all hover:shadow-2xl ${
@@ -157,6 +187,134 @@ export default function Home() {
                           {pattern.difficulty}
                         </span>
                         <span className="text-indigo-600 font-semibold text-sm">
+                          Learn Now →
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                ) : (
+                  <div className="p-6">
+                    <div className="text-5xl mb-4 grayscale">{pattern.emoji}</div>
+                    <h4 className="text-xl font-bold text-gray-400 mb-2">
+                      {pattern.name}
+                    </h4>
+                    <p className="text-gray-400 text-sm mb-4">
+                      {pattern.description}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-semibold px-3 py-1 rounded-full bg-gray-100 text-gray-500">
+                        Week {pattern.week}
+                      </span>
+                      <span className="text-gray-400 font-semibold text-sm">
+                        Coming Soon
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Week 3: Trees & Arrays */}
+        <div className="mb-8">
+          <h3 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+            <span>🌲</span>
+            <span>Week 3: Trees & Array Problems (2 Patterns)</span>
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {patterns.filter(p => p.week === 3).map((pattern) => (
+              <div
+                key={pattern.id}
+                className={`bg-white rounded-xl shadow-lg border-2 transition-all hover:shadow-2xl ${
+                  pattern.status === 'available'
+                    ? 'border-purple-200 hover:border-purple-400 hover:-translate-y-1'
+                    : 'border-gray-200 opacity-60'
+                }`}
+              >
+                {pattern.status === 'available' ? (
+                  <Link href={`/patterns/${pattern.id}`}>
+                    <div className="p-6 cursor-pointer">
+                      <div className="text-5xl mb-4">{pattern.emoji}</div>
+                      <h4 className="text-xl font-bold text-gray-800 mb-2">
+                        {pattern.name}
+                      </h4>
+                      <p className="text-gray-600 text-sm mb-4">
+                        {pattern.description}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <span className={`text-xs font-semibold px-3 py-1 rounded-full ${
+                          pattern.difficulty === 'Easy'
+                            ? 'bg-green-100 text-green-700'
+                            : 'bg-yellow-100 text-yellow-700'
+                        }`}>
+                          {pattern.difficulty}
+                        </span>
+                        <span className="text-purple-600 font-semibold text-sm">
+                          Learn Now →
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                ) : (
+                  <div className="p-6">
+                    <div className="text-5xl mb-4 grayscale">{pattern.emoji}</div>
+                    <h4 className="text-xl font-bold text-gray-400 mb-2">
+                      {pattern.name}
+                    </h4>
+                    <p className="text-gray-400 text-sm mb-4">
+                      {pattern.description}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-semibold px-3 py-1 rounded-full bg-gray-100 text-gray-500">
+                        Week {pattern.week}
+                      </span>
+                      <span className="text-gray-400 font-semibold text-sm">
+                        Coming Soon
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Week 4: Graphs */}
+        <div className="mb-8">
+          <h3 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+            <span>🗺️</span>
+            <span>Week 4: Graph Algorithms (1 Pattern)</span>
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {patterns.filter(p => p.week === 4).map((pattern) => (
+              <div
+                key={pattern.id}
+                className={`bg-white rounded-xl shadow-lg border-2 transition-all hover:shadow-2xl ${
+                  pattern.status === 'available'
+                    ? 'border-teal-200 hover:border-teal-400 hover:-translate-y-1'
+                    : 'border-gray-200 opacity-60'
+                }`}
+              >
+                {pattern.status === 'available' ? (
+                  <Link href={`/patterns/${pattern.id}`}>
+                    <div className="p-6 cursor-pointer">
+                      <div className="text-5xl mb-4">{pattern.emoji}</div>
+                      <h4 className="text-xl font-bold text-gray-800 mb-2">
+                        {pattern.name}
+                      </h4>
+                      <p className="text-gray-600 text-sm mb-4">
+                        {pattern.description}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <span className={`text-xs font-semibold px-3 py-1 rounded-full ${
+                          pattern.difficulty === 'Easy'
+                            ? 'bg-green-100 text-green-700'
+                            : 'bg-yellow-100 text-yellow-700'
+                        }`}>
+                          {pattern.difficulty}
+                        </span>
+                        <span className="text-teal-600 font-semibold text-sm">
                           Learn Now →
                         </span>
                       </div>
