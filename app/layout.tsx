@@ -21,6 +21,8 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         {children}
+        {/* Cloudflare Web Analytics */}
+        <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6135e70374314d90b9a778020f58af52"}'></script>
       </body>
     </html>
   );
