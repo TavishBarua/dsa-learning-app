@@ -109,6 +109,9 @@ export default function Home() {
               <Link href="/striver" className="text-sm font-semibold text-gray-600 hover:text-indigo-600 pb-1">
                 Striver A2Z
               </Link>
+              <Link href="/git-visualizer" className="text-sm font-semibold text-gray-600 hover:text-indigo-600 pb-1">
+                🌳 Git
+              </Link>
               <Link href="/ats-checker" className="text-sm font-semibold text-gray-600 hover:text-indigo-600 pb-1">
                 ATS Checker
               </Link>
