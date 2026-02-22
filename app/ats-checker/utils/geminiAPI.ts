@@ -2,7 +2,7 @@
 
 export interface GeminiConfig {
   apiKey: string;
-  model: string; // 'gemini-1.5-flash' for free tier
+  model: string; // 'gemini-1.5-flash-latest' for free tier
 }
 
 export interface RateLimitInfo {
@@ -120,7 +120,7 @@ export async function optimizeResumeWithAI(
   const prompt = buildOptimizationPrompt(jd, resume);
   const config: GeminiConfig = {
     apiKey,
-    model: 'gemini-1.5-flash'
+    model: 'gemini-1.5-flash-latest'
   };
 
   return await callGeminiAPI(prompt, config);
