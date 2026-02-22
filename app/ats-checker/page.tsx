@@ -380,7 +380,7 @@ export default function ATSChecker() {
                 <span>Google Gemini API Key Setup</span>
               </h3>
               <p className="text-purple-800 mb-4">
-                To use AI optimization, you need a free Google Gemini API key. Don't worry - it's completely free and takes 1 minute!
+                To use AI optimization, you need a free Google Gemini API key. Don&apos;t worry - it&apos;s completely free and takes 1 minute!
               </p>
               <div className="bg-white/50 rounded-lg p-4 mb-4">
                 <ol className="list-decimal list-inside space-y-2 text-sm text-purple-900">
@@ -395,8 +395,8 @@ export default function ATSChecker() {
                       Google AI Studio
                     </a>
                   </li>
-                  <li>Click "Create API Key"</li>
-                  <li>Copy the key (starts with "AIza...")</li>
+                  <li>Click &quot;Create API Key&quot;</li>
+                  <li>Copy the key (starts with &quot;AIza...&quot;)</li>
                   <li>Paste it below</li>
                 </ol>
               </div>
@@ -776,7 +776,7 @@ Senior Developer at Tech Corp (2020-Present)
                   <li><strong>Truthfulness:</strong> Never fabricates - only reframes existing content</li>
                 </ul>
                 <p className="mt-3 font-semibold">🔒 Privacy: Your API key and resume data stay in your browser. We never see them!</p>
-                <p className="mt-2 font-semibold">♻️ Rate Limiting: We protect you from exceeding Google's free tier limits automatically.</p>
+                <p className="mt-2 font-semibold">♻️ Rate Limiting: We protect you from exceeding Google&apos;s free tier limits automatically.</p>
               </div>
             </div>
           </div>
